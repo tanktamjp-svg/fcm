@@ -3,264 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>快餐大亨：數位規則手冊</title>
+    <title>快餐大亨：終極數位規則手冊</title>
     <style>
         :root {
-            --primary-red: #d32f2f;
-            --diner-yellow: #fbc02d;
-            --bg-cream: #fff9e6;
-            --text-dark: #333;
-            --accent-teal: #00796b;
-            --border-style: 2px solid var(--text-dark);
+            --diner-red: #B71C1C;
+            --diner-yellow: #FFD54F;
+            --cream-bg: #FFFDE7;
+            --text-black: #212121;
+            --teal-accent: #00695C;
+            --paper-white: #FFFFFF;
         }
 
         body {
-            font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
-            background-color: var(--bg-cream);
-            color: var(--text-dark);
-            line-height: 1.6;
+            font-family: "Noto Sans TC", sans-serif;
+            background-color: var(--cream-bg);
+            color: var(--text-black);
             margin: 0;
-            padding: 0;
+            line-height: 1.7;
         }
 
         header {
-            background-color: var(--primary-red);
+            background-color: var(--diner-red);
             color: white;
-            padding: 2rem 1rem;
             text-align: center;
-            border-bottom: 5px solid var(--diner-yellow);
+            padding: 3rem 1rem;
+            border-bottom: 8px solid var(--diner-yellow);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
         }
 
-        h1, h2, h3 {
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        h1 { font-size: 3rem; margin: 0; letter-spacing: 2px; }
+        h2 { border-bottom: 4px solid var(--diner-red); padding-bottom: 0.5rem; margin-top: 3rem; color: var(--diner-red); }
+        h3 { color: var(--teal-accent); border-left: 5px solid var(--teal-accent); padding-left: 10px; margin-top: 2rem; }
+
+        .citation {
+            font-size: 0.8rem;
+            color: #777;
+            vertical-align: super;
+            font-weight: bold;
         }
 
         section {
-            background: white;
-            padding: 1.5rem;
+            background: var(--paper-white);
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            border: var(--border-style);
-            box-shadow: 5px 5px 0px var(--diner-yellow);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.05);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
         }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
+        th { background-color: var(--diner-red); color: white; padding: 12px; }
+        td { border: 1px solid #ddd; padding: 12px; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        .ability-grid, .milestone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
         }
 
-        th {
-            background-color: var(--accent-teal);
-            color: white;
+        .card {
+            border: 1px solid #ccc;
+            padding: 1.5rem;
+            background: #fff;
+            position: relative;
         }
 
-        .milestone-card, .employee-card {
-            border-left: 5px solid var(--primary-red);
-            padding: 0.5rem 1rem;
-            margin-bottom: 1rem;
-            background: #f9f9f9;
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 5px; height: 100%;
+            background: var(--diner-red);
         }
 
-        .benefit {
-            color: var(--accent-teal);
-            font-weight: bold;
-        }
+        .highlight { background: var(--diner-yellow); padding: 0 4px; border-radius: 2px; }
+        .benefit { color: var(--teal-accent); font-weight: bold; }
+        .salary { color: var(--diner-red); font-weight: bold; }
 
-        .highlight {
-            background-color: var(--diner-yellow);
-            padding: 0 4px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
+        .footer { text-align: center; padding: 3rem; background: #333; color: #ccc; margin-top: 4rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Food Chain Magnate</h1>
-    <p>—— 數位規則與策略手冊 ——</p>
+    <h1>FOOD CHAIN MAGNATE</h1>
+    <p>豪華版策略規則手冊匯總</p>
 </header>
 
 <div class="container">
 
-    <section>
-        <h2>🛠 遊戲設置 (General Setup)</h2>
-        [cite_start]<p>根據玩家人數調整地圖與組件數量 [cite: 147]：</p>
+    <section id="setup">
+        <h2>🛠 遊戲初始設置 (General Setup)</h2>
+        <p>這款遊戲的配置高度取決於玩家人數 [cite: 114]。請依照下表進行資源分配：</p>
         <table>
-            <thead>
-                <tr>
-                    <th>玩家人數</th>
-                    <th>地圖大小</th>
-                    <th>初始銀行</th>
-                    <th>需移除的看板項目</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2 人</td>
-                    <td>3x3</td>
-                    <td>$100</td>
-                    <td>#12, #15, #16</td>
-                </tr>
-                <tr>
-                    <td>3 人</td>
-                    <td>3x4</td>
-                    <td>$150</td>
-                    <td>#15, #16</td>
-                </tr>
-                <tr>
-                    <td>4 人</td>
-                    <td>4x4</td>
-                    <td>$200</td>
-                    <td>#16</td>
-                </tr>
-                <tr>
-                    <td>5 人</td>
-                    <td>4x5</td>
-                    <td>$250</td>
-                    <td>無</td>
-                </tr>
-            </tbody>
+            <tr>
+                <th>玩家人數</th>
+                <th>地圖大小 [cite: 147]</th>
+                <th>初始銀行 [cite: 147]</th>
+                <th>特殊員工調整 [cite: 180]</th>
+                <th>移除看板廣告 [cite: 147]</th>
+            </tr>
+            <tr>
+                <td>2</td><td>3x3</td><td>$100</td><td>每種標示員工僅保留 1 張</td><td>#12, #15, #16</td>
+            </tr>
+            <tr>
+                <td>3</td><td>3x4</td><td>$150</td><td>每種標示員工僅保留 1 張</td><td>#15, #16</td>
+            </tr>
+            <tr>
+                <td>4</td><td>4x4</td><td>$200</td><td>每種標示員工僅保留 2 張</td><td>#16</td>
+            </tr>
+            <tr>
+                <td>5</td><td>4x5</td><td>$250</td><td>保留全部卡片</td><td>無</td>
+            </tr>
         </table>
+        
+        <h3>📍 初始餐廳放置規則</h3>
         <ul>
-            [cite_start]<li><strong>起始餐廳：</strong> 依逆向玩家順序放置。入口角落必須鄰接道路 [cite: 274, 284]。</li>
-            [cite_start]<li><strong>銀行儲備：</strong> 每人秘密選擇一張儲備卡面朝下放於銀行旁 [cite: 271]。</li>
+            <li>按行動順序的反向進行放置（最後一名先放）[cite: 274]。</li>
+            <li>必須覆蓋 4 個空格，不能覆蓋道路、預設建築或其他餐廳 [cite: 282]。</li>
+            <li><strong>入口角落：</strong> 必須鄰接道路 [cite: 284]。且同一塊地圖板塊上不能有兩個玩家的入口角落 [cite: 285]。</li>
         </ul>
+        <p>每個玩家起始擁有一個 CEO 卡、一個菜單、里程碑板、3 個餐廳標記及 3 張銀行儲備卡 [cite: 259, 266]。</p>
     </section>
 
-    <section>
-        <h2>🔄 遊戲流程 (Game Rounds)</h2>
-        [cite_start]<p>每一輪由以下七個階段組成 [cite: 568]：</p>
-        <ol>
-            [cite_start]<li><strong>結構重組 (Restructuring)：</strong> 同步選擇要打出的員工（工作位）或派往海灘休息 [cite: 579, 629]。</li>
-            [cite_start]<li><strong>營運順序 (Order of Business)：</strong> 依空餘工作位多寡決定行動順序（空位愈多愈優先選擇）[cite: 679]。</li>
-            [cite_start]<li><strong>朝九晚五 (Working 9-5)：</strong> 玩家輪流執行員工行動（招聘、培訓、行銷、生產）[cite: 695, 708]。</li>
-            [cite_start]<li><strong>晚餐時間 (Dinnertime)：</strong> 顧客根據有效價格與距離決定用餐地點 [cite: 1102, 1128]。</li>
-            [cite_start]<li><strong>發薪日 (Payday)：</strong> 支付所有標有 $ 符號員工每人 $5 薪資 [cite: 1237, 1242]。</li>
-            [cite_start]<li><strong>行銷運作 (Marketing)：</strong> 結算地圖上的廣告，並為房屋增加需求 [cite: 1272, 1277]。</li>
-            [cite_start]<li><strong>清理階段 (Cleanup)：</strong> 拋棄未售出的食物，收回員工卡（忙碌中的行銷員除外）[cite: 1368, 1371]。</li>
-        </ol>
+    <section id="flow">
+        <h2>🔄 遊戲流程詳解 (Game Rounds)</h2>
+        <p>每一輪遊戲分為七個固定階段 [cite: 568]：</p>
+        
+        <h3>1. 結構重組 (Restructuring) [cite: 569]</h3>
+        <p>同步決定本輪要執行的員工。放在 CEO 下方的卡片本輪會工作，未使用的卡片放在「海灘」休息 [cite: 579, 627]。</p>
+        
+        <h3>2. 決定營運順序 (Order of Business) [cite: 676]</h3>
+        <p>擁有最多「空餘工作位」的玩家先選擇順序 [cite: 679]。平手時，上一輪排在前面的玩家優先選擇 [cite: 685]。</p>
+        
+        <h3>3. 朝九晚五 (Working 9-5) [cite: 703]</h3>
+        <p>這是主要的行動階段。玩家按順序執行以下子行動：招聘、培訓、開啟得來速、行銷、生產食物、放置房屋/花園、放置/移動餐廳 [cite: 708-717]。</p>
+        
+        <h3>4. 晚餐時間 (Dinnertime) [cite: 1111]</h3>
+        <p>顧客從 1 號房開始依序決定去哪家店用餐 [cite: 1105]。顧客只會去「能滿足其全部需求」且「有道路連接」的店 [cite: 1108-1110]。</p>
+        
+        <h3>5. 發薪日 (Payday) [cite: 1235]</h3>
+        <p>為所有標有薪資符號 <span class="salary">$</span> 的員工支付 $5（不論他在工作還是海灘）[cite: 1237, 1242]。</p>
+        
+        <h3>6. 行銷結算 (Marketing) [cite: 1272]</h3>
+        <p>按廣告編號從小到大放置需求計數器 [cite: 1275]。廣告每輪會消耗一個持續時間計數器 [cite: 1284]。</p>
+        
+        <h3>7. 清理階段 (Cleanup) [cite: 1367]</h3>
+        <p>丟棄未售出的食物 [cite: 1369]。除了忙碌的行銷員外，收回所有員工卡 [cite: 1371, 1372]。</p>
     </section>
 
-    <section>
-        <h2>👨‍🍳 員工職位能力 (Employee Types)</h2>
-        <div class="grid">
-            <div class="employee-card">
-                <h3>管理層 (Managers)</h3>
-                [cite_start]<p>擴張公司結構。提供額外的工作位供其他員工使用 [cite: 397, 634]。</p>
+    <section id="characters">
+        <h2>👨‍💼 員工詳細能力 (Character Abilities)</h2>
+        <div class="ability-grid">
+            <div class="card">
+                <h3>招聘與 HR 經理</h3>
+                <ul>
+                    <li><strong>招聘員 (Recruiting Girl)：</strong> 招聘 1 名初級員工 [cite: 721]。</li>
+                    <li><strong>招聘經理 (Recruiting Manager)：</strong> 執行 2 次招聘，或抵消 $5 薪資 [cite: 738-740]。</li>
+                    <li><strong>HR 總監 (HR Director)：</strong> 執行 4 次招聘，或抵消 $5 薪資 [cite: 735, 736]。</li>
+                </ul>
             </div>
-            <div class="employee-card">
-                <h3>行銷人員 (Marketeers)</h3>
-                [cite_start]<p>在廣告位放置廣告。廣告期間該員工處於「忙碌」狀態 [cite: 416, 417, 883]。</p>
+            <div class="card">
+                <h3>培訓師 (Trainers)</h3>
+                <ul>
+                    <li><strong>教練 (Coach)：</strong> 培訓 2 次（或 2 人次）[cite: 743]。</li>
+                    <li><strong>大師 (Guru)：</strong> 培訓 3 次。可將同一人連續訓練三級 。</li>
+                </ul>
             </div>
-            <div class="employee-card">
-                <h3>廚房員工 (Kitchen Staff)</h3>
-                [cite_start]<p>生產漢堡與披薩。生產出的食物存放於玩家的庫存中 [cite: 422, 965]。</p>
+            <div class="card">
+                <h3>規劃與管理 (Planning)</h3>
+                <ul>
+                    <li><strong>區域經理 (Regional Manager)：</strong> 開啟得來速；可無距離限制放置新餐廳或移動現有餐廳 [cite: 1090-1096]。</li>
+                    <li><strong>當地經理 (Local Manager)：</strong> 開啟得來速；在 3 格距離內放置一個「即將開幕」的餐廳 [cite: 1073-1077]。</li>
+                    <li><strong>新開發商 (Business Developer)：</strong> 放置一個帶花園的房屋，或為現有房屋增加花園 [cite: 1041, 1042]。</li>
+                </ul>
             </div>
-            <div class="employee-card">
-                <h3>飲料採購 (Drink Buyers)</h3>
-                [cite_start]<p>沿道路路線收集飲料（蘇打水、檸檬水、啤酒）[cite: 420, 972]。</p>
+            <div class="card">
+                <h3>生產與採購 (Kitchen & Drinks)</h3>
+                <ul>
+                    <li><strong>漢堡/披薩廚師 (Cooks)：</strong> 生產特定數量的食物 [cite: 965]。</li>
+                    <li><strong>卡車司機 (Truck Driver)：</strong> 沿路每個經過的供應商可獲取 3 份飲料 [cite: 974]。</li>
+                    <li><strong>飛艇飛行員 (Zeppelin Pilot)：</strong> 飛行經過的每個板塊可獲取 2 份飲料 [cite: 975]。</li>
+                </ul>
             </div>
-            <div class="employee-card">
-                <h3>招聘與培訓 (Recruiters & Trainers)</h3>
-                [cite_start]<p>獲取新員工（招聘）或將現有員工升級為更高級職位（培訓）[cite: 409]。</p>
-            </div>
-            <div class="employee-card">
-                <h3>服務生與財務長 (Waitress & CFO)</h3>
-                [cite_start]<p>在晚餐時間結束時提供額外現金獎金 [cite: 400, 1194, 1197]。</p>
+            <div class="card">
+                <h3>財務與銷售 (Finance)</h3>
+                <ul>
+                    <li><strong>定價經理 (Pricing Manager)：</strong> 永久售價減 $1 [cite: 1175]。</li>
+                    <li><strong>奢侈品經理 (Luxuries Manager)：</strong> 售價加 $10 [cite: 1177]。</li>
+                    <li><strong>CFO：</strong> 晚餐時間總收入增加 50%（無條件進位）[cite: 1197]。</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2>🏘 地圖與建築說明 (Map Elements)</h2>
-        <ul>
-            [cite_start]<li><strong>餐廳入口 (Entrance Corner)：</strong> 所有的路程計算皆由入口開始。必須與道路相鄰 [cite: 441, 475]。</li>
-            [cite_start]<li><strong>房屋 (House)：</strong> 顧客居住地。標記顯示他們渴望的食物類型（最多 3 個，有花園則為 5 個）[cite: 431, 525]。</li>
-            [cite_start]<li><strong>花園 (Garden)：</strong> 增加房屋需求上限，且晚餐結算時支付**兩倍價格** [cite: 1061, 1185]。</li>
-            [cite_start]<li><strong>得來速 (Drive-In)：</strong> 由管理經理放置，使餐廳四個角落都視為入口，縮短路程距離 [cite: 404, 832, 833]。</li>
-            [cite_start]<li><strong>飲料供應商 (Supplier)：</strong> 提供特定類型的飲品供採購員收集 [cite: 429]。</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>🏆 里程碑獎勵 (Milestones)</h2>
-        [cite_start]<p>當達成條件時立即獲得，該輪結束後其他玩家不可再領取 [cite: 533, 535]。</p>
+    <section id="buildings">
+        <h2>🏠 建築與地圖規則 (Building Abilities)</h2>
+        
         <div class="grid">
-            <div class="milestone-card">
-                <strong>首位招聘 3 名員工：</strong>
-                [cite_start]<p class="benefit">立即額外獲得 2 名管理實習生 [cite: 1395]。</p>
+            <div>
+                <h3>1. 房屋與花園 (Houses & Gardens)</h3>
+                <ul>
+                    <li><strong>需求上限：</strong> 一般房屋上限為 3 個需求；有花園的房屋上限為 5 個 [cite: 525]。</li>
+                    <li><strong>雙倍收益：</strong> 顧客購買有花園房屋的需求時，支付雙倍金額 [cite: 1061]。</li>
+                    <li><strong>距離判定：</strong> 花園被視為房屋的一部分，可用於縮短與餐廳或行銷媒介的距離 [cite: 456, 1291]。</li>
+                </ul>
             </div>
-            <div class="milestone-card">
-                <strong>首位打出服務生：</strong>
-                [cite_start]<p class="benefit">每位服務生獎金增加至 $5 [cite: 1194, 1404]。</p>
+            <div>
+                <h3>2. 得來速 (Drive-Ins)</h3>
+                <ul>
+                    <li><strong>全向入口：</strong> 餐廳的四個角落皆視為入口 [cite: 833]。</li>
+                    <li><strong>連結強化：</strong> 常用於連結到原本不通的道路，或縮短顧客購餐距離 [cite: 842]。</li>
+                </ul>
             </div>
-            <div class="milestone-card">
-                <strong>首位拋棄食物：</strong>
-                [cite_start]<p class="benefit">獲得一個冰箱，可儲存最多 10 個食物到下一輪 [cite: 1428]。</p>
-            </div>
-            <div class="milestone-card">
-                <strong>首位發起看板廣告：</strong>
-                [cite_start]<p class="benefit">行銷員不需支付薪資，且所有廣告變為永久性（Eternal）[cite: 947, 1444, 1446]。</p>
-            </div>
-            <div class="milestone-card">
-                <strong>首位打出跑腿工：</strong>
-                [cite_start]<p class="benefit">所有飲料收集員獲取量 +1 [cite: 1416]。</p>
-            </div>
-            <div class="milestone-card">
-                <strong>首位擁有 $100：</strong>
-                [cite_start]<p class="benefit">CEO 具備財務長功能（收入額外 50%），需解雇原有的財務長 [cite: 1412, 1413]。</p>
-            </div>
-            <div class="milestone-card">
-                <strong>首位發起廣播廣告：</strong>
-                [cite_start]<p class="benefit">廣播每次產生的需求量加倍（2 個計數器）[cite: 1454]。</p>
-            </div>
-            <div class="milestone-card">
-                <strong>首位降低價格：</strong>
-                [cite_start]<p class="benefit">基礎價格永久減 $1 [cite: 1435]。</p>
+            <div>
+                <h3>3. 飲料供應商 (Suppliers)</h3>
+                <ul>
+                    <li>地圖上的固定點位，需由採購員經過方可獲得資源 [cite: 429]。</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2>🏁 遊戲結束條件 (Game End)</h2>
-        [cite_start]<p>遊戲在「銀行破產兩次」後結束 [cite: 339]：</p>
-        <ol>
-            [cite_start]<li><strong>第一次破產：</strong> 揭曉所有人的銀行儲備卡，將卡面總額補入銀行 [cite: 340, 1221, 1222]。</li>
-            [cite_start]<li><strong>CEO 工作位調整：</strong> 根據儲備卡出現次數最多的數字，決定 CEO 剩餘遊戲的工作位（2、3 或 4 個）[cite: 1224, 1225]。</li>
-            [cite_start]<li><strong>第二次破產：</strong> 該輪晚餐時間結束後結算。**現金最多者勝出** [cite: 341, 1384, 1387]。</li>
-        </ol>
+    <section id="milestones">
+        <h2>🏆 完整里程碑清單 (All Milestones)</h2>
+        <div class="milestone-grid">
+            <div class="card">
+                <h3>人力與培訓</h3>
+                <ul>
+                    <li><strong>首位培訓員工：</strong> <span class="benefit">薪資發放階段永久抵消 $15</span> [cite: 1392]。</li>
+                    <li><strong>首位單回合招聘 3 人：</strong> <span class="benefit">立即獲得 2 名管理實習生</span> [cite: 1395]。</li>
+                    <li><strong>首位支付 $20 薪資：</strong> <span class="benefit">可使用多個培訓行動訓練同一個人</span> [cite: 1400]。</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>生產與庫存</h3>
+                <ul>
+                    <li><strong>首位生產漢堡/披薩：</strong> <span class="benefit">立即獲得 1 名對應的廚師</span> [cite: 1422]。</li>
+                    <li><strong>首位拋棄食物：</strong> <span class="benefit">獲得冰箱，可跨輪儲存 10 份食物</span> [cite: 1428]。</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>行銷與銷售</h3>
+                <ul>
+                    <li><strong>首位行銷漢堡/披薩/飲料：</strong> <span class="benefit">每賣出一份該類商品，額外獲 $5</span> [cite: 1439]。</li>
+                    <li><strong>首位發起看板廣告：</strong> <span class="benefit">行銷員免薪，且所有廣告變為永久性</span> [cite: 1444, 1446]。</li>
+                    <li><strong>首位發起廣播廣告：</strong> <span class="benefit">廣播每次產生 2 個需求計數器</span> [cite: 1454]。</li>
+                    <li><strong>首位降價：</strong> <span class="benefit">售價永久減 $1</span> [cite: 1435]。</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>財富與地位</h3>
+                <ul>
+                    <li><strong>首位打出服務生：</strong> <span class="benefit">每位服務生收入加 $2（共 $5）</span> [cite: 1404]。</li>
+                    <li><strong>首位擁有 $100：</strong> <span class="benefit">CEO 具備 CFO 功能；須解雇原有 CFO</span> [cite: 1412]。</li>
+                    <li><strong>首位發起飛機行銷：</strong> <span class="benefit">決定順序時，空餘位額外計 +2</span> [cite: 1450]。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="endgame">
+        <h2>🏁 遊戲結束與結算 (Game End Situation)</h2>
+        <h3>第一次破產 (The First Bank Break) [cite: 1219]</h3>
+        <p>當銀行資金歸零時，立即揭曉玩家在設置階段放入的「銀行儲備卡」[cite: 1221]：</p>
+        <ul>
+            <li><strong>資金補充：</strong> 將所有卡片金額相加，從盒中補入銀行 [cite: 1222, 1223]。</li>
+            <li><strong>CEO 能力調整：</strong> 根據儲備卡中出現最多次的數字，將 CEO 的工作位調整為該數字（2、3 或 4 位）[cite: 1224, 1225]。</li>
+        </ul>
+        
+        <h3>第二次破產 (The Second Bank Break) [cite: 1231]</h3>
+        <p>當銀行第二次歸零時，不再補充資金 [cite: 1232]：</p>
+        <ul>
+            <li>玩家繼續完成當前的「晚餐時間」階段（可領取欠條）[cite: 1233]。</li>
+            <li><strong>勝負：</strong> 現金最高者勝出 [cite: 1387]。平手時，行動順序排在前面的獲勝 [cite: 1388]。</li>
+            <li>最後一輪不需支付員工薪水 [cite: 1386]。</li>
+        </ul>
     </section>
 
 </div>
 
-<footer>
-    <p>Food Chain Magnate 是 Splotter Spellen 的商標。本頁面僅供規則參考之用。</p>
-</footer>
+<div class="footer">
+    <p>© 2026 Splotter Spellen 玩家社群製作規則匯總</p>
+    <p>提醒：這是一款非常「不留情面」的重度策略遊戲，一步走錯可能萬劫不復！[cite: 313]</p>
+</div>
 
 </body>
 </html>
